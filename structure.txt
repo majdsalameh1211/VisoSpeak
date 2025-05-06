@@ -1,0 +1,85 @@
+# Updated VisoSpeak Project Structure
+VisoSpeak/
+│
+├── data/                                # All datasets and intermediate outputs
+│   ├── raw/                             # Raw input videos
+│   │   ├── video1.mp4
+│   │   └── video2.mp4
+│   │
+│   ├── video1/                          # Output data tied to video1
+│   │   ├── frames/                      # Extracted raw frames
+│   │   ├── mouth_crops/                # Cropped mouth regions
+│   │   ├── features/                   # Extracted 3D/2D CNN features
+│   │   ├── visemes/                    # Predicted viseme sequences
+│   │   ├── word_candidates.json        # CMU word candidates from visemes
+│   │   ├── gpt_selected_words.json     # GPT-selected best word per viseme group
+│   │   └── final_output.txt            # Final sentence reconstruction
+│   │
+│   ├── video2/                          # Output data tied to video2 (same structure)
+│   │   └── ...
+│   │
+│   └── global/                          # Shared resources & final evaluation
+│       ├── cmu_dict/                   # CMU dictionary files
+│       ├── viseme_dictionary.json     # Master viseme-to-phoneme mapping
+│       └── evaluation_report.csv      # Summary performance results
+│
+├── models/                              # Pretrained and trained model files
+│   ├── mouth_cnn_3d.pth                # 3D CNN for motion/spatial features
+│   ├── resnet2d.pth                    # 2D ResNet for static features
+│   ├── viseme_transformer.pth         # Maps features to viseme sequence
+│   ├── word_gpt_model/                # GPT model for word reconstruction
+│   └── sentence_corrector_model/      # NLP model to clean up full sentences
+│
+├── notebooks/                           # Present and test results of each step
+│   ├── 01_preprocessing.ipynb          # Inspect frame extraction & mouth detection
+│   ├── 02_mouth_extraction.ipynb       # Visualize and test mouth ROI crops
+│   ├── 03_feature_extraction.ipynb     # Test CNN outputs & explore feature patterns
+│   ├── 04_viseme_prediction.ipynb      # Analyze viseme predictions from features
+│   ├── 05_word_generation.ipynb        # Evaluate viseme-to-word generation and GPT ranking
+│   └── 06_sentence_correction.ipynb    # Present NLP correction results and analysis
+│
+├── scripts_to_run_files/               # CLI scripts to execute each major step
+│   ├── run_preprocessing.py
+│   ├── run_mouth_extraction.py
+│   ├── run_feature_extraction.py
+│   ├── run_viseme_prediction.py
+│   ├── run_word_generation.py
+│   └── run_sentence_correction.py
+│
+├── src/                                 # All main source code (modularized)
+│   ├── preprocessing/
+│   │   ├── extract_frames.py
+│   │   ├── detect_faces.py
+│   │   └── crop_mouth.py
+│   │
+│   ├── feature_extraction/
+│   │   ├── cnn3d_extractor.py
+│   │   └── resnet2d_extractor.py
+│   │
+│   ├── viseme_prediction/
+│   │   └── transformer_model.py
+│   │
+│   ├── word_prediction/
+│   │   ├── cmu_dict_utils.py
+│   │   ├── gpt_ranker.py
+│   │   └── viseme_to_word.py
+│   │
+│   ├── sentence_reconstruction/
+│   │   └── grammar_correction.py
+│   │
+│   └── utils/
+│       ├── viseme_mapping.py
+│       ├── video_utils.py
+│       └── logger.py
+│
+├── tests/                               # Unit and integration tests
+│   ├── test_preprocessing.py
+│   ├── test_cnn3d.py
+│   ├── test_transformer.py
+│   ├── test_gpt_ranker.py
+│   └── test_pipeline_integration.py
+│
+├── run_pipeline.py                      # Full pipeline CLI script
+├── requirements.txt                     # Python dependencies
+├── README.md                            # Project overview and instructions
+└── .gitignore                           # Ignored files for version control

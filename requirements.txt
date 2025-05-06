@@ -1,0 +1,34 @@
+# ------------------------------
+# Core Libraries
+# ------------------------------
+numpy>=1.21
+matplotlib>=3.5
+pillow>=9.0
+tqdm>=4.60
+
+# ------------------------------
+# Machine Learning & Vision
+# ------------------------------
+torch>=2.0
+torchvision>=0.15
+torchaudio>=2.0
+scikit-learn>=1.1
+opencv-python>=4.5
+
+# Optional: used in some notebooks
+imageio>=2.9
+scikit-image>=0.19
+
+# ------------------------------
+# NLP / Visualization
+# ------------------------------
+seaborn>=0.12
+
+# ------------------------------
+# Jupyter Support (Optional)
+# ------------------------------
+notebook
+
+# Note: mediapipe has limited support for Python versions.
+# For Python 3.10+, use:
+mediapipe==0.10.9
