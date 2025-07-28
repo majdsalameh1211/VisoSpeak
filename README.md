@@ -23,8 +23,8 @@ Viso_Speak_GUI/
 │   ├── models/
 │   │   ├── lip_reading_model.py
 │   │   ├── lipnet_model.py
-│   │   ├── transformer.pt        # Transformer weights
-│   │   └── lipnet.weights.h5     # LipNet weights
+│   │   ├── transformer.pt        
+│   │   └── lipnet.weights.h5     
 │   └── requirements.txt
 │
 ├── frontend/
