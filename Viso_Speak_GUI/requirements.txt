@@ -1,0 +1,15 @@
+# ==== Web Framework ====
+Flask==2.3.3
+Flask-Cors==4.0.0
+
+# ==== Deep Learning ====
+torch==2.3.0
+torchvision==0.18.0
+tensorflow==2.15.0
+
+# ==== Video & Image Processing ====
+opencv-python==4.9.0.80
+numpy==1.26.4
+
+# ==== Utility ====
+pathlib==1.0.1
